@@ -19,4 +19,10 @@ class TestColourTable {
         assertThrows(IllegalArgumentException.class,() -> new ColourTable(size));
     }
 
+    ColourTable table = new ColourTable(4);//creating an instance to add colors to
+    @Test
+    void testAddValidColor() {
+        int validColor = 0x0F0F0F;
+        assertDoesNotThrow(() -> table.add(validColor));
+    }
 }
