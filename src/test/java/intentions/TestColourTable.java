@@ -25,4 +25,9 @@ class TestColourTable {
         int validColor = 0x0F0F0F;
         assertDoesNotThrow(() -> table.add(validColor));
     }
+    @Test
+    void testAddInvalidColor() {
+        int InvalidColor = 0xFFFFFFF;
+        assertThrows(IllegalArgumentException.class,() -> table.add(InvalidColor));
+    }
 }
