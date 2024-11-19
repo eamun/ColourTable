@@ -30,4 +30,17 @@ class TestColourTable {
         int InvalidColor = 0xFFFFFFF;
         assertThrows(IllegalArgumentException.class,() -> table.add(InvalidColor));
     }
+    @Test
+    void testCapacity(){
+        assertDoesNotThrow(() -> {
+            table.add(0x000000); // 1. black
+            table.add(0xFFFFFF); // 2. white
+            table.add(0xfff8e7); // 3. cosmic latte
+            table.add(0xf0f8ff); // 4. alice blue
+            //table.add(0x32cd32);
+        });
+
+        assertThrows(IllegalStateException.class,() -> table.add(0x32cd32));
+        //5. lime green, this addition should go over the capacity of "table" throwing an exception
+    }
 }
